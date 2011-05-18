@@ -50,15 +50,18 @@ module Muvandy
           :utm_source => params[:utm_source],
           :utm_medium => params[:utm_medium]          
         }
+        begin
+          xml = self.class.get("/tests/#{self.template_slug}/visitors/variable_versions.xml?#{slugs.map{|i| "keys[]=#{i}"}.join("&") unless slugs.empty?}#{hash_to_query_string(query_params)}")
 
-        xml = self.class.get("/tests/#{self.template_slug}/visitors/variable_versions.xml?#{slugs.map{|i| "keys[]=#{i}"}.join("&") unless slugs.empty?}#{hash_to_query_string(query_params)}")
-
-        if xml.parsed_response && !xml.parsed_response["visitor"].blank? #&& !xml.parsed_response["visitor"]["variable_versions"].blank?
-          @variable_hash = {}
-          self.id  = xml.parsed_response["visitor"]["id"].to_i if !xml.parsed_response["visitor"].blank? && !xml.parsed_response["visitor"]["id"].blank?
-          xml.parsed_response["visitor"]["variable_versions"]["variable"].each do |v|
-            @variable_hash[v["key"]] =  v["value"]
+          if xml.parsed_response && !xml.parsed_response["visitor"].blank? #&& !xml.parsed_response["visitor"]["variable_versions"].blank?
+            @variable_hash = {}
+            self.id  = xml.parsed_response["visitor"]["id"].to_i if !xml.parsed_response["visitor"].blank? && !xml.parsed_response["visitor"]["id"].blank?
+            xml.parsed_response["visitor"]["variable_versions"]["variable"].each do |v|
+              @variable_hash[v["key"]] =  v["value"]
+            end
           end
+        rescue
+          Rails.logger.debug { "ERROR: #{Problem encountered connecting to Muvandy API}" }
         end
       end
       @variable_hash
