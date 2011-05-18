@@ -60,7 +60,10 @@ module Muvandy
               @variable_hash[v["key"]] =  v["value"]
             end
           end
-        rescue
+        rescue Exception => e
+          unless HoptoadNotifier.nil? 
+            HoptoadNotifier.notify(e)
+          end          
           Rails.logger.debug { "ERROR: Problem encountered connecting to Muvandy API" }
         end
       end

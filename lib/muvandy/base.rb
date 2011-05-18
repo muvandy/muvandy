@@ -20,7 +20,14 @@ module Muvandy
       end
 
       def visitor_convert
-        current_muvandy_visitor.convert
+        begin
+          current_muvandy_visitor.convert
+        rescue Exception => e
+          unless HoptoadNotifier.nil? 
+            HoptoadNotifier.notify(e)
+          end
+          Rails.logger.debug { "#{e.message}" }
+        end
       end
 
       def muvandy_extra_params
