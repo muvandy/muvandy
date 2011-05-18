@@ -61,7 +61,7 @@ module Muvandy
             end
           end
         rescue
-          Rails.logger.debug { "ERROR: #{Problem encountered connecting to Muvandy API}" }
+          Rails.logger.debug { "ERROR: Problem encountered connecting to Muvandy API" }
         end
       end
       @variable_hash
