@@ -39,7 +39,7 @@ In your Controller.
 
 On views/home/index.html.erb
 
-		<%= content_tag "h1", @muvandy.get_variation("Headline-1", "Greetings!") %>  # 2nd parameters serves asa default.
+		<%= content_tag "h1", @muvandy.get_variation("Headline-1", "Greetings!") %>  # 2nd parameters serves as a default.
 		<p>
 			<%= @muvandy.get_variation("main-text-1") %>
 		</p>
