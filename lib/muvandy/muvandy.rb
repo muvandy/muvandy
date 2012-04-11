@@ -44,7 +44,7 @@ module Muvandy
     end
         
     def get(action, add_to_query={})
-      prefix = "/api/v#{Muvandy::Muvandy::VERSION}"
+      prefix = "/api/v#{Versionomy.parse(Muvandy::Muvandy::VERSION).major}"
       query_string = case action
       when :variable_variations
         "/experiments/#{@experiment_id}/visitors/variable_variations.xml"

@@ -1,3 +1,4 @@
+require "versionomy"
 module Muvandy
-  VERSION = "1"
+  VERSION = Versionomy.create(:major => 1).to_s
 end
