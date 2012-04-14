@@ -16,10 +16,9 @@ module Muvandy
       Muvandy.utm_campaign = params[:utm_campaign]
       Muvandy.utm_source = params[:utm_source]
       Muvandy.utm_medium = params[:utm_medium]
-      
-      Muvandy.visitor_ip = request.remote_ip
+
       Muvandy.referrer = request.referrer
-    end    
+    end 
 
   end
  
