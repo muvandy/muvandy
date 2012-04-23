@@ -10,7 +10,7 @@ module Muvandy
 
   module ClassMethods
     
-    def set_muvandy_info
+    def collect_muvandy_visitor_info
       Muvandy.mode = params[:mode]
       Muvandy.utm_term = params[:utm_term]
       Muvandy.utm_campaign = params[:utm_campaign]

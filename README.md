@@ -32,14 +32,22 @@ Example of using muvandy on a controller.
 
 		class HomeController < ApplicationController
 			include Muvandy
-			before_filter :set_muvandy_info, :only => [:index]
+			before_filter :collect_muvandy_visitor_indfo, :only => [:index]
 			
 			def index
 				@muvandy = Muvandy.new('experiment-id', :visitor_key => request.remote_ip)
 			end
 		end
 
-A 'visitor_key' is required. You can use the visitor's IP address, email or any unique identifier for the user in your app. 
+A 'visitor_key' is required. You can use the visitor's IP address, email or any unique identifier for the user in your app.
+Setting 'collect_muvandy_visitor_indfo' in your before_filter helps muvandy collect the following information from your 'request' & 'params' variables.
+* referrer
+* utm_term
+* utm_campaign
+* utm_source
+* utm_medium
+* mode
+
 
 ### Views
 
