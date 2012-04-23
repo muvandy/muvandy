@@ -39,7 +39,8 @@ Example of using muvandy on a controller.
 			end
 		end
 
-A 'visitor_key' is required. You can use the visitor's IP address, email or any unique identifier for the user in your app.
+A 'visitor_key' is required. By default, we recommend using the visitor's IP address but if you have other information on them their account id or email address make good unique visitor identifiers.
+
 Setting 'collect_muvandy_visitor_indfo' in your before_filter helps muvandy collect the following information from your 'request' & 'params' variables.
 * referrer
 * utm_term
@@ -51,12 +52,12 @@ Setting 'collect_muvandy_visitor_indfo' in your before_filter helps muvandy coll
 
 ### Views
 
+Get the value by providing variable key and a fallback text. Fallback text will be displayed if in case muvandy returns an error for the variable.
+
 		<%= content_tag "h1", @muvandy.get_variation("Headline-1", "Greetings!") %>
 		<p>
 			<%= @muvandy.get_variation("main-text-1") %>
 		</p>
-
-An optional second parameter for 'get_variations' method can be provided to serve as a default value.
 
 ### Conversions
 
