@@ -6,7 +6,7 @@ Client for [Muvandy API](http://muvandy.com)
 
 Add this line to your application's Gemfile:
 
-		gem 'muvandy'
+		gem 'muvandy', '~> 1.1a1'
 
 And then execute:
 
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install muvandy
+    $ gem install muvandy --pre
 
 ## To Configure
 
