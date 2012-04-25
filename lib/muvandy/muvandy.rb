@@ -25,7 +25,8 @@ module Muvandy
       (@variable_variations[variable_key].blank?) ? default : @variable_variations[variable_key].html_safe
     end
 
-    def convert!(value=50)
+    def convert!(value=nil)
+      value = 50 if value.blank?
       post(:convert, :value => value)
     end
         
@@ -117,7 +118,7 @@ module Muvandy
       
       def convert(experiment_id, options={})
         muvandy = Muvandy.new(experiment_id, options.merge(:skip_variations => true))
-        muvandy.convert!
+        muvandy.convert!(options[:value])
       end
       
     end
