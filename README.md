@@ -21,7 +21,7 @@ Or install it yourself as:
 Create a file in your config/initializers folder named muvandy_setup.rb (or whichever name you prefer)
 
  		Muvandy.configure do |c|
-			c.api_key = '<place your api key here>'
+			c.api_key = 'api_key_here'
 		end
 
 ## Get Variations
@@ -35,7 +35,7 @@ Example of using muvandy on a controller.
 			before_filter :collect_muvandy_visitor_indfo, :only => [:index]
 			
 			def index
-				@muvandy = Muvandy.new('experiment-id', :visitor_key => request.remote_ip)
+				@muvandy = Muvandy.new('experiment_id', :visitor_key => request.remote_ip)
 			end
 		end
 
