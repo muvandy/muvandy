@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## To Configure
 
-Create a file in your config/initializers folder named muvandy_setup.rb (or whichever name you prefer)
+Create a file in your `config/initializers` folder named `muvandy_setup.rb` (or whichever name you prefer)
 
  		Muvandy.configure do |c|
 			c.api_key = 'api_key_here'
@@ -39,9 +39,9 @@ Example of using muvandy on a controller.
 			end
 		end
 
-A 'visitor_key' is required. By default, we recommend using the visitor's IP address but if you have other information on them their account id or email address make good unique visitor identifiers.
+A `visitor_key` is required. By default, we recommend using the visitor's IP address but if you have other information on them their account id or email address make good unique visitor identifiers.
 
-Setting `:collect_muvandy_visitor_info` in your before_filter helps muvandy collect the following information from your 'request' & 'params' variables.
+Setting `:collect_muvandy_visitor_info` in your `before_filter` helps muvandy collect the following information from your `request` & `params` variables.
 * referrer
 * utm_term
 * utm_campaign
