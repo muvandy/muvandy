@@ -36,7 +36,7 @@ module Muvandy
       @variable_variations = {}
       begin
         xml = get(:variable_variations)      
-        Rails.logger.debug { "DEBUG ------------ #{xml.parsed_response.inspect}" }
+        # Rails.logger.debug { "DEBUG ------------ #{xml.parsed_response.inspect}" }
         if xml.parsed_response && !xml.parsed_response["visitor"].blank?
           # self.id  = xml.parsed_response["visitor"]["id"].to_i if !xml.parsed_response["visitor"].blank? && !xml.parsed_response["visitor"]["id"].blank?
           xml.parsed_response["visitor"]["variable_variations"]["variable"].each do |v|
@@ -58,7 +58,7 @@ module Muvandy
       end
       begin
         xml = self.class.get("#{api_prefix}#{query_string}#{extra_params_to_query(add_to_query)}")
-        raise Exception.new(xml.parsed_response["error"]["message"]) if xml.response.code != 200
+        raise Exception.new(xml.parsed_response["error"]["message"]) if xml.response.code != '200'
       rescue Exception => e
         Rails.logger.debug { "Muvandy Gem Error: #{e.message}" }
       end
@@ -72,7 +72,7 @@ module Muvandy
       end
       begin
         xml = self.class.post("#{api_prefix}#{query_string}", :query => query.merge!(:visitor_key => @visitor_key)) # #{extra_params_to_query(add_to_query)}
-        raise Exception.new(xml.parsed_response["error"]["message"]) if xml.response.code != 200
+        raise Exception.new(xml.parsed_response["error"]["message"]) if xml.response.code != '200'
       rescue Exception => e
         Rails.logger.debug { "Muvandy Gem Error: #{e.message}" }
       end
