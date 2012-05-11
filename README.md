@@ -6,7 +6,7 @@ Client for [Muvandy API](http://muvandy.com)
 
 Add this line to your application's Gemfile:
 
-		gem 'muvandy', '~> 1.2a1'
+		gem 'muvandy', '~> 1.2.1a1'
 
 And then execute:
 
