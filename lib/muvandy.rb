@@ -28,7 +28,7 @@ module Muvandy
     def configure
       yield self          
       Muvandy.api_key = api_key
-      Muvandy.site = (site.nil?) ? 'http://muvandy.com' : site
+      Muvandy.site = (site.nil?) ? 'http://api.muvandy.com' : site
     end
 
     def included(base)
