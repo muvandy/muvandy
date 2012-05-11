@@ -1,6 +1,6 @@
 # Muvandy
 
-Client for [Muvandy API](http://muvandy.com)
+Client for [Muvandy API](http://www.muvandy.com)
 
 ## Installation
 
