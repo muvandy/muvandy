@@ -58,9 +58,10 @@ module Muvandy
           # Rails.logger.debug { "DEBUG ------------ #{xml.parsed_response.inspect}" }
           if xml.parsed_response && !xml.parsed_response["visitor"].blank?
             # self.id  = xml.parsed_response["visitor"]["id"].to_i if !xml.parsed_response["visitor"].blank? && !xml.parsed_response["visitor"]["id"].blank?
-            xml.parsed_response["visitor"]["variable_variations"]["variable"].each do |v|
-              @variable_variations[v["key"]] =  v["value"]
-            end
+            @variable_variations[xml.parsed_response["visitor"]["variable_variations"]["variable"]["key"]] =  xml.parsed_response["visitor"]["variable_variations"]["variable"]["value"]
+            # xml.parsed_response["visitor"]["variable_variations"]["variable"].each do |v|
+            #   @variable_variations[v["key"]] =  v["value"]
+            # end
           end
         rescue
         end
